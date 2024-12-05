@@ -1,2 +1,2 @@
 #!/bin/bash
-lsb_release -i | grep -oP 'Distributor ID:\s+\K\w+'
+lsb_release -a | grep "Distributor ID:" | cut -d ":" -f2 | tr -d "[:blank:]"
