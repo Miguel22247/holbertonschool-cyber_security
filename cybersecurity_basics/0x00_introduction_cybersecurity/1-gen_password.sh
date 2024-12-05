@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -dc A-Za-z0-9 < /dev/urandom | head -c 16 | xargs
+tr -dc '[:alnum:]' < /dev/urandom | head -c $1 | xargs
