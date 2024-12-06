@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo ip
+sudo ip ss
