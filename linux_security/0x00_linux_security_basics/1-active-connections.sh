@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo ip sst
+sudo ss -t -a -n -p
