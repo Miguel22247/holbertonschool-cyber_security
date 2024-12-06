@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo tcdump --count 5
+sudo tcpdump --count 5
