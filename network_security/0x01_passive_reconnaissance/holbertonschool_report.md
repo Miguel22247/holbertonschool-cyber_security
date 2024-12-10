@@ -17,7 +17,7 @@ List of IP ranges associated with holbertonschool.com:
 ### Subdomain 1: apply.holbertonschool.com
 
 - **IP Address**: 15.188.212.152
-- **Technologies**: JQuery, Ruby, Ruby on Rails, Google Tag Manager, Typekit
+- **Technologies**: JQuery, Ruby, Ruby on Rails, Google Tag Manager, Typekit, deployed on AWS EC2 with nginx 1.20.0
 
 ### Subdomain 2: subdomain2.holbertonschool.com
 
