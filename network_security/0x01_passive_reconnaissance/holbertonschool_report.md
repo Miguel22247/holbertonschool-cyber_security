@@ -14,10 +14,10 @@ List of IP ranges associated with holbertonschool.com:
 
 ## Subdomains and Technologies
 
-### Subdomain 1: subdomain1.holbertonschool.com
+### Subdomain 1: apply.holbertonschool.com
 
-- **IP Address**: [IP Address]
-- **Technologies**: [Technology 1], [Technology 2], ...
+- **IP Address**: 15.188.212.152
+- **Technologies**: JQuery, Ruby, Ruby on Rails, Google Tag Manager, Typekit
 
 ### Subdomain 2: subdomain2.holbertonschool.com
 
@@ -39,4 +39,4 @@ This report summarizes the findings from the reconnaissance of the holbertonscho
 
 ## Authors
 
-- Shodan: [Miguel Pacheco](https://github.com/Miguel22247)
+- Miguel Pacheco: [Miguel Github Profile](https://github.com/Miguel22247)
