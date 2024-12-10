@@ -8,9 +8,7 @@ This report provides detailed information about the holbertonschool.com domain, 
 
 List of IP ranges associated with holbertonschool.com:
 
-- IP Range 1: [IP Range Details]
-- IP Range 2: [IP Range Details]
-- ...
+- IP Range 1: The range found for the domain holbertonschool.com was found between 75.2.70.75 and 99.83.190.102
 
 ## Subdomains and Technologies
 
