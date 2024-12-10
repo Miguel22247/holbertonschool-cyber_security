@@ -1,42 +1,42 @@
-# Passive Reconnaissance Report
+# Holberton School Domain Reconnaissance Report
 
-## Table of Contents
-1. Introduction
-2. Objectives
-3. Methodology
-4. Findings
-  - Subdomain Enumeration
-  - WHOIS Information
-  - DNS Information
-  - Social Media Footprint
-5. Conclusion
-6. Recommendations
+## Introduction
 
-## 1. Introduction
-Provide a brief overview of the purpose of the report and the target organization.
+This report provides detailed information about the holbertonschool.com domain, including IP ranges, technologies, and frameworks used within all subdomains. The data was collected using Shodan.
 
-## 2. Objectives
-Outline the main objectives of the passive reconnaissance activities.
+## IP Ranges
 
-## 3. Methodology
-Describe the tools and techniques used to gather information.
+List of IP ranges associated with holbertonschool.com:
 
-## 4. Findings
+- IP Range 1: [IP Range Details]
+- IP Range 2: [IP Range Details]
+- ...
 
-### Subdomain Enumeration
-List the discovered subdomains and relevant details.
+## Subdomains and Technologies
 
-### WHOIS Information
-Summarize the WHOIS information obtained for the target domain.
+### Subdomain 1: subdomain1.holbertonschool.com
 
-### DNS Information
-Detail the DNS records and any notable findings.
+- **IP Address**: [IP Address]
+- **Technologies**: [Technology 1], [Technology 2], ...
 
-### Social Media Footprint
-Highlight any relevant information found on social media platforms.
+### Subdomain 2: subdomain2.holbertonschool.com
 
-## 5. Conclusion
-Summarize the key findings and their implications.
+- **IP Address**: [IP Address]
+- **Technologies**: [Technology 1], [Technology 2], ...
 
-## 6. Recommendations
-Provide actionable recommendations based on the findings.
+### Subdomain 3: subdomain3.holbertonschool.com
+
+- **IP Address**: [IP Address]
+- **Technologies**: [Technology 1], [Technology 2], ...
+
+## Conclusion
+
+This report summarizes the findings from the reconnaissance of the holbertonschool.com domain. The information gathered includes IP ranges and the technologies used across various subdomains.
+
+## References
+
+- Shodan: [Shodan Website](https://www.shodan.io/)
+
+## Authors
+
+- Shodan: [Miguel Pacheco](https://github.com/Miguel22247)
