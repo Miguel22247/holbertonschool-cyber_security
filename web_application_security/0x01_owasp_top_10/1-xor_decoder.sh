@@ -29,7 +29,4 @@ done)
 
 # Output the decoded message
 echo "$decoded_message"
-echo "Debug: Encoded string: $encoded"
-echo "Debug: Decoded bytes (hex):"
-echo "$decoded" | xxd
-echo "Debug: Decoded message: $decoded_message"
+
