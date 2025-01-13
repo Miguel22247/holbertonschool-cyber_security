@@ -1,15 +1,15 @@
 #!/bin/bash
-input="$1"
-input="${input#'{xor}'}"
-decopwd=$(echo "$input" | base64 -d)
 
-decripted_input=""
-key=95
-for ((i = 0; i < ${#decripted_input}; i++)); do
-    char="${decripted_input:$i:1}"
-    ascii_value=$(printf "%d" "'$char")
-    xor_result=$(( ascii_value ^ $key ))
-    decopwordxor+="$(printf "$(printf '\\x%x' $xor_result)")"
+# Decode the base64 encoded input
+decoded=$(echo "$1" | sed 's/{xor}//g' | base64 --decode)
+
+# XOR each byte with 0x5f and convert to a string
+output=""
+for (( i=0; i<${#decoded}; i++ )); do
+  byte=$(printf "%d" "'${decoded:$i:1}")
+  xor_byte=$((byte ^ 0x5f))
+  output+=$(printf "\\$(printf '%03o' "$xor_byte")")
 done
 
-echo -e "$decopwordxor"
+# Print the decoded string
+echo "$output"
