@@ -56,4 +56,9 @@ echo "Generated cookie: $random_cookie"
 
 # Run the POST command
 echo -e "\n--- Executing POST Request ---"
-response=$(curl -X
+response=$(curl -X POST -b "hijack_session=$random_cookie" \
+    "$URL/login" \
+    -d '{"email": "pepe@pepe.com", "password": "halal"}')
+
+echo "Response from server:"
+echo "$response"
