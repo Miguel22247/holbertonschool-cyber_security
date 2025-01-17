@@ -61,15 +61,5 @@ response=$(curl -X POST -b "hijack_session=$random_cookie" \
     "$LOGIN_URL" \
     -d '{"email": "pepe@pepe.com", "password": "halal"}')
 
-echo "Response from server:"
+echo -e "\n--- Response from Login URL ---"
 echo "$response"
-
-# Fetch and display HTML content of the site
-echo -e "\n--- Fetching HTML Content of $BASE_URL ---"
-html_content=$(curl -s "$BASE_URL")
-echo "$html_content"
-
-# Save HTML content to a file for review
-output_file="site_content.html"
-echo "$html_content" > "$output_file"
-echo "HTML content saved to $output_file."
