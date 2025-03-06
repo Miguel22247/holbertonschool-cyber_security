@@ -1,1 +1,1 @@
-# Permisssions SGUID SGID
+# Permissions, SUID & SGID
