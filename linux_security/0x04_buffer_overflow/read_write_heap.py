@@ -13,6 +13,30 @@ Arguments:
 """
 import sys
 
+def find_and_replace_in_heap(pid, search_string, replace_string):
+  """
+    Find and replace a string in the heap memory of a running process.
+
+    Parameters:
+        pid (int): Process ID of the target process
+        search_string (bytes): String to search for in the heap
+        replace_string (bytes): String to replace the search_string
+    """
+
+    try:
+
+    except PermissionError:
+      print(f"Permission denied. Try running the script with sudo.")
+      sys.exit(1)
+
+    except FileNotFoundError:
+      print(f"Process with PID {pid} not found.")
+      sys.exit(1)
+
+    except Exception as e:
+      print(f"An error occurred: {e}")
+      sys.exit(1)
+
 def main():
     """
     Main function to handle input arguments and execute the heap string replacement.
@@ -24,6 +48,8 @@ def main():
     
     search_string = sys.argv[2].encode()
     replace_string = sys.argv[3].encode()
-    
 
-if __name__ == "__main__"
+    find_and_replace_in_heap(pid, search_string, replace_string)
+
+if __name__ == "__main__":
+  main()
