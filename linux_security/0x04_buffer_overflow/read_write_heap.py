@@ -18,9 +18,9 @@ def find_and_replace_in_heap(pid, search_string, replace_string):
     Find and replace a string in the heap memory of a running process.
 
     Parameters:
-        pid (int): Process ID of the target process
-        search_string (bytes): String to search for in the heap
-        replace_string (bytes): String to replace the search_string
+        pid: Process ID of the target process
+        search_string: String to search for in the heap
+        replace_string: String to replace the search_string
     """
 
     try:
