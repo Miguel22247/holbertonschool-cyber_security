@@ -7,10 +7,14 @@ def get_request(url)
 
   puts "Response status: #{response.code} #{response.message}"
 
-  output = {
-    status_code: response.code.to_i,
-    body: response.body
-  }
-
-  puts JSON.pretty_generate(output)
+  if response.is_a?(Net::HTTPSuccess)
+    begin
+      json_body = JSON.pretty_generate(JSON.parse(response.body))
+      puts "Response body:\n#{json_body}"
+    rescue JSON::ParserError
+      puts "Response body:\n{\n}"
+    end
+  else
+    puts "Response body:\n{\n}"
+  end
 end
